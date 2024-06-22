@@ -6,15 +6,18 @@
 </head>
 <body>
     <button id="runButton">Запустить OKRun.exe</button>
+    <textarea id="output" rows="10" cols="50" readonly></textarea>
     
     <script>
         document.getElementById('runButton').addEventListener('click', function() {
             fetch('run.php')
                 .then(response => response.text())
                 .then(data => {
-                    alert(data);
+                    document.getElementById('output').value = data;
                 })
-                .catch(error => console.error('Ошибка:', error));
+                .catch(error => {
+                    document.getElementById('output').value = 'Ошибка: ' + error;
+                });
         });
     </script>
 </body>
