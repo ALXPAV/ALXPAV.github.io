@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Заголовок страницы</title>
-  </head>
-  <body>
-    <h1>Заголовок сайта</h1>
-    <p>Это пример простого сайта HTML.</p>
-    <ul>
-      <li>Первый элемент списка</li>
-      <li>Второй элемент списка</li>
-      <li>Третий элемент списка</li>
-    </ul>
-  </body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Запуск OKRun.exe</title>
+</head>
+<body>
+    <button id="runButton">Запустить OKRun.exe</button>
+    
+    <script>
+        document.getElementById('runButton').addEventListener('click', function() {
+            fetch('run.php')
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                })
+                .catch(error => console.error('Ошибка:', error));
+        });
+    </script>
+</body>
 </html>
+
